@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noel_fintech_app/presentation/home/home_screen.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({super.key});
@@ -15,6 +16,24 @@ class _SecurityScreenState extends State<SecurityScreen> {
     if (passcode.length < maxLength) {
       setState(() {
         passcode.add(number);
+      });
+
+      if (passcode.length == maxLength) {
+        validatePasscode();
+      }
+    }
+  }
+
+  void validatePasscode() {
+    if (passcode.join() == "2002") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } else {
+      // Optionally, show an error message or reset the passcode
+      setState(() {
+        passcode.clear();
       });
     }
   }

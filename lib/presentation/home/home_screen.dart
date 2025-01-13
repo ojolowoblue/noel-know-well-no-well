@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noel_fintech_app/presentation/home/utils/constants.dart';
 import 'package:noel_fintech_app/presentation/home/widgets/balance_summary.dart';
 import 'package:noel_fintech_app/presentation/home/widgets/quick_action_button.dart';
 
@@ -10,29 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> buttonLabels = [
-    "Transfer",
-    "Exchange",
-    "Payments",
-    "Credits",
-    "Deposits",
-    "Plans",
-    "Overdraft",
-    "Security",
-    "More",
-  ];
-  final List<IconData> buttonIcons = [
-    Icons.compare_arrows_outlined,
-    Icons.currency_yen,
-    Icons.account_balance_wallet_rounded,
-    Icons.credit_card,
-    Icons.percent,
-    Icons.card_giftcard,
-    Icons.money,
-    Icons.security,
-    Icons.dashboard,
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,11 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Wrap(
             spacing: 30,
             runSpacing: 30,
-            children: List.generate(buttonLabels.length, (index) {
+            children: List.generate(quickActions.length, (index) {
               return QuickActionButton(
-                  buttonIcons: buttonIcons,
-                  buttonLabels: buttonLabels,
-                  index: index);
+                icon: quickActions[index].icon,
+                label: quickActions[index].label,
+                key: Key(index.toString()),
+              );
             }),
           ),
         ],

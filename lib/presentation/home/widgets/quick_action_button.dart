@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class QuickActionButton extends StatelessWidget {
   const QuickActionButton({
     super.key,
-    required this.buttonIcons,
-    required this.buttonLabels,
-    required this.index,
+    required this.icon,
+    required this.label,
   });
 
-  final List<IconData> buttonIcons;
-  final List<String> buttonLabels;
-  final int index;
+  final IconData icon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +28,13 @@ class QuickActionButton extends StatelessWidget {
             width: 100,
             height: 30,
             child: Icon(
-              buttonIcons[index],
+              icon,
               color: Colors.white,
               size: 20,
             ),
           ),
           Text(
-            buttonLabels[index],
+            label,
             style: TextStyle(
               color: Colors.grey[700],
               fontSize: 16,
