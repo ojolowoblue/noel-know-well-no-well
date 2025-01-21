@@ -152,11 +152,9 @@ class WalkThroughScreenState extends State<WalkThroughScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 10),
                           child: Text(
                             screens[index].description,
                             style: TextStyle(
@@ -197,41 +195,38 @@ class WalkThroughScreenState extends State<WalkThroughScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  SizedBox(
-                    height: 58,
-                    width: 243,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff32D74B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 40.0),
+                    child: SizedBox(
+                      height: 58,
+                      width: 243,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff32D74B),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                      ),
-                      onPressed: () {
-                        if (activePage < screens.length - 1) {
-                          pageController.nextPage(
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        } else {
-                          // Navigate to the next screen
-                        }
-                      },
-                      child: const Text(
-                        'Next',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                        onPressed: () {
+                          if (activePage < screens.length - 1) {
+                            pageController.nextPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          } else {
+                            // Navigate to the next screen
+                          }
+                        },
+                        child: const Text(
+                          'Next',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 40,
                   ),
                 ],
               )
